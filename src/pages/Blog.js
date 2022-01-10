@@ -1,17 +1,16 @@
 // import { useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function Blog() {
-  // const dispatch = useDispatch();
+  const blogData = useSelector(store => store.app.blog);
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch({ type: 'LOAD_BLOG_DATA' })
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  console.log(blogData);
 
   return (
     <div>
       Blog
+      <button onClick={() => dispatch({type: 'LOAD_SOME_DATA'})}>Load some data</button>
     </div>
   )
 }
